@@ -26573,7 +26573,7 @@
 	        function renderMessage() {
 	            if (isLoading) {
 	                return React.createElement(
-	                    'h3',
+	                    'h4',
 	                    null,
 	                    'Fetching weather....'
 	                );
@@ -26586,8 +26586,8 @@
 	            'div',
 	            null,
 	            React.createElement(
-	                'h1',
-	                null,
+	                'h2',
+	                { className: 'text-center' },
 	                'Weather'
 	            ),
 	            React.createElement(WeatherForm, { onSearchFunc: this.searchHandle }),
@@ -26623,10 +26623,10 @@
 	        return React.createElement(
 	            'form',
 	            { onSubmit: this.onSearch },
-	            React.createElement('input', { type: 'text', ref: 'location' }),
+	            React.createElement('input', { type: 'search', ref: 'location', placeholder: 'search weather...' }),
 	            React.createElement(
 	                'button',
-	                null,
+	                { className: 'button expanded hollow' },
 	                'Get Weather'
 	            )
 	        );
@@ -26639,20 +26639,20 @@
 /* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
 	var WeatherMessage = React.createClass({
-	    displayName: 'WeatherMessage',
+	    displayName: "WeatherMessage",
 
 	    render: function render() {
 	        return React.createElement(
-	            'h3',
-	            null,
-	            'It is ',
+	            "h4",
+	            { className: "text-center" },
+	            "It is ",
 	            this.props.temperature,
-	            ' degrees in ',
+	            " degrees in ",
 	            this.props.location
 	        );
 	    }
@@ -28191,7 +28191,12 @@
 	            React.createElement(
 	                "p",
 	                null,
-	                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula pharetra lacus, ut varius turpis ultricies vel. In tortor tortor, ultrices nec ex ut, pellentesque consectetur sapien. Maecenas nec imperdiet eros. Quisque eu pretium neque, non pharetra nunc. Donec et vestibulum augue. Quisque non massa a eros lacinia hendrerit. Pellentesque sit amet euismod ex."
+	                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula pharetra lacus, ut varius turpis ultricies vel. In tortor tortor, ultrices nec ex ut, pellentesque consectetur sapien. Maecenas nec imperdiet eros."
+	            ),
+	            React.createElement(
+	                "p",
+	                null,
+	                "Quisque eu pretium neque, non pharetra nunc. Donec et vestibulum augue. Quisque non massa a eros lacinia hendrerit. Pellentesque sit amet euismod ex."
 	            )
 	        );
 	    }
