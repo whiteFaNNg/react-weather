@@ -26420,7 +26420,15 @@
 	            'div',
 	            null,
 	            React.createElement(Nav, null),
-	            this.props.children
+	            React.createElement(
+	                'div',
+	                { className: 'row' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'column medium-6 large-4 small-centered' },
+	                    this.props.children
+	                )
+	            )
 	        );
 	    }
 	});
@@ -28164,18 +28172,27 @@
 /* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
 	var About = React.createClass({
-	    displayName: 'About',
+	    displayName: "About",
 
 	    render: function render() {
 	        return React.createElement(
-	            'h5',
+	            "div",
 	            null,
-	            'About Page'
+	            React.createElement(
+	                "h2",
+	                { className: "text-center" },
+	                "About Page"
+	            ),
+	            React.createElement(
+	                "p",
+	                null,
+	                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula pharetra lacus, ut varius turpis ultricies vel. In tortor tortor, ultrices nec ex ut, pellentesque consectetur sapien. Maecenas nec imperdiet eros. Quisque eu pretium neque, non pharetra nunc. Donec et vestibulum augue. Quisque non massa a eros lacinia hendrerit. Pellentesque sit amet euismod ex."
+	            )
 	        );
 	    }
 	});
@@ -28190,14 +28207,57 @@
 
 	var React = __webpack_require__(8);
 
+	var _require = __webpack_require__(179),
+	    Link = _require.Link;
+
 	var Examples = React.createClass({
 	    displayName: 'Examples',
 
 	    render: function render() {
 	        return React.createElement(
-	            'h5',
+	            'div',
 	            null,
-	            'Examples Page'
+	            React.createElement(
+	                'h2',
+	                { className: 'text-center' },
+	                'Examples'
+	            ),
+	            React.createElement(
+	                'p',
+	                null,
+	                'Here are some location examples:'
+	            ),
+	            React.createElement(
+	                'ol',
+	                null,
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Ohrid' },
+	                        'Ohrid'
+	                    )
+	                ),
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Skopje' },
+	                        'Skopje'
+	                    )
+	                ),
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Bitola' },
+	                        'Bitola'
+	                    )
+	                )
+	            )
 	        );
 	    }
 	});
