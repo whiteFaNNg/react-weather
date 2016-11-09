@@ -26452,8 +26452,12 @@
 	var Nav = React.createClass({
 	    displayName: 'Nav',
 
-	    onSearch: function onSearch() {
-	        alert("Not functional !");
+	    onSearch: function onSearch(e) {
+	        e.preventDefault();
+	        var location = this.refs.weatherInput.value;
+	        var encodedLocation = encodeURIComponent(location);
+	        this.refs.weatherInput.value = '';
+	        window.location.hash = '#/?location=' + encodedLocation;
 	    },
 	    render: function render() {
 	        return React.createElement(
@@ -26511,7 +26515,7 @@
 	                        React.createElement(
 	                            'li',
 	                            null,
-	                            React.createElement('input', { type: 'search', placeholder: 'search weather...' })
+	                            React.createElement('input', { type: 'search', placeholder: 'search weather...', ref: 'weatherInput' })
 	                        ),
 	                        React.createElement(
 	                            'li',
@@ -26551,7 +26555,9 @@
 	        var that = this;
 	        this.setState({
 	            isLoading: true,
-	            errorMessage: undefined
+	            errorMessage: undefined,
+	            temperature: undefined,
+	            location: undefined
 	        });
 
 	        openWeatherMap.getTemperature(location).then(function (res) {
@@ -26566,6 +26572,20 @@
 	                errorMessage: res.message
 	            });
 	        });
+	    },
+	    componentDidMount: function componentDidMount() {
+	        var location = this.props.location.query.location;
+	        if (location && location.length > 0) {
+	            this.searchHandle(location);
+	            window.location.hash = '#/';
+	        }
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps(newProps) {
+	        var location = newProps.location.query.location;
+	        if (location && location.length > 0) {
+	            this.searchHandle(location);
+	            window.location.hash = '#/';
+	        }
 	    },
 	    render: function render() {
 	        var _state = this.state,
@@ -28207,7 +28227,7 @@
 
 	        return React.createElement(
 	            'div',
-	            { className: 'reveal text-center', id: 'error-modal', 'data-reveal': '' },
+	            { className: 'reveal text-center small', id: 'error-modal', 'data-reveal': '' },
 	            React.createElement(
 	                'h1',
 	                null,
