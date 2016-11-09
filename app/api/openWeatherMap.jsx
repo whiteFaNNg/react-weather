@@ -15,10 +15,10 @@ function getTemperature(location){
             }
         },
         function(res){
-            throw new Error(res.data.message)
+            throw new Error(res);
         }
     );
 
 };
 
-module.exports = getTemperature;
+module.exports = {getTemperature: getTemperature};
