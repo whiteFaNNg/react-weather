@@ -9,7 +9,7 @@ var Examples = require('Examples');
 require('style!css!foundation-sites/dist/foundation.min.css');
 $(document).foundation();
 
-require('style!css!AppStyles');
+require('style!css!sass!AppStyles');
 
 ReactDOM.render(
     <Router history={hashHistory}>
