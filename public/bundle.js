@@ -26555,7 +26555,6 @@
 	        });
 
 	        openWeatherMap.getTemperature(location).then(function (res) {
-	            debugger;
 	            that.setState({
 	                location: location,
 	                temperature: res,

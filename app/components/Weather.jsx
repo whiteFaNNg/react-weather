@@ -19,7 +19,6 @@ var Weather = React.createClass({
 
         openWeatherMap.getTemperature(location).then(
             function(res){
-                debugger;
                 that.setState({
                     location: location,
                     temperature: res,
